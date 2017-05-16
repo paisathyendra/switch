@@ -6,18 +6,26 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Config;
 
-class APIService {
+class APIService
+{
 
-	public function connectToAPI() {
-		$api_path = config::get('constants.MOVIE_SHOWINGS_API_PATH');
-		$client = new \GuzzleHttp\Client(['verify' => false] );
-		return $client->request('GET', $api_path);
-	}
+    public function connectToAPI()
+    {
+        $api_path = config::get('constants.MOVIE_SHOWINGS_API_PATH');
+        $client = new \GuzzleHttp\Client(['verify' => false]);
+        return $client->request('GET', $api_path);
+    }
 
-	public function fetchData() {
-		$jsonResponse = $this->connectToAPI();
-        return json_decode($jsonResponse->getBody(), true);
-	}
+    public function fetchData()
+    {
+        try {
+            $jsonResponse = $this->connectToAPI();
+            return json_decode($jsonResponse->getBody(), true);
+        } catch (\Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+
+    }
 }
 
 ?>

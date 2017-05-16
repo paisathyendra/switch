@@ -27,6 +27,11 @@
 					@yield('content')
 				</div>
 			</div>
+			<div class="row">
+				@if(Session::has('msg'))
+					<div class="alert">{{ Session::get('msg') }}</div>
+				@endif
+			</div>
 		</div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
