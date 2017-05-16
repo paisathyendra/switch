@@ -9,4 +9,5 @@
         <li><b>{{$movie['movie']}}</b>, showing at {{$movie['time']}}</li>
     @endforeach
     </ul>
+    <a href="/">Back</a>
 @endsection
