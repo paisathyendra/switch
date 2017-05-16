@@ -1,5 +1,4 @@
 # Switch
-Switch
 This application is developed using 
 - Laravel 5.5
 - PHP 5.6.28
