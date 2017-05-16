@@ -13,4 +13,8 @@
 
 Route::get('/', 'MovieController@index');
 Route::post('recommended', 'MovieController@recommendedMovies');
-Route::get('recommended', 'MovieController@index');
+
+Route::get('recommended', function()
+{
+    return redirect('/');
+});
